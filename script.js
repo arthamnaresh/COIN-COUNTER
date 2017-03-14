@@ -12,6 +12,7 @@ function calculate(){
 		"denomination": "denomination-4",
 		"value": parseInt(document.getElementById("denomination-4").value)
 	}];
+	var denominations = sorting(json);
 	calculateDenominations(denominations);
 }
 
@@ -32,4 +33,9 @@ function calculateDenominations(denominations){
 			}
 		}
 	}
+}
+function sorting(json){
+	return json.sort(function(a,b){
+		return b.value - a.value;
+	});
 }
