@@ -24,11 +24,10 @@ function calculateDenominations(denominations){
 			quo = Math.floor(value / denominations[i].value);
 			value = value % denominations[i].value;
 			if(quo != 0){
-				var value = quo;
 				var denomination = denominations[i].denomination;
 				var indexpos = denomination.lastIndexOf('-');
 				var index = denomination.substring(indexpos+1);
-				document.getElementById("count"+index).innerHTML = value;
+				document.getElementById("count"+index).innerHTML = quo;
 				document.getElementById("inner-"+index).style.display = "block";
 			}
 		}
