@@ -1,3 +1,9 @@
+function sorting(json){
+	return json.sort(function(a,b){
+		return b.value - a.value;
+	});
+}
+
 function calculate(){
 	var json = [{
 		"denomination": "denomination-1",
@@ -13,9 +19,7 @@ function calculate(){
 		"value": parseInt(document.getElementById("denomination-4").value)
 	}];
 	var denominations = sorting(json);
-	for(var i=1;i<=denominations.length;i++){
-		document.getElementById("inner-"+i).style.display = "none";
-	}
+	clearDenominations(denominations);
 	calculateDenominations(denominations);
 }
 
@@ -28,17 +32,23 @@ function calculateDenominations(denominations){
 			quo = Math.floor(value / denominations[i].value);
 			value = value % denominations[i].value;
 			if(quo != 0){
-				var denomination = denominations[i].denomination;
-				var indexpos = denomination.lastIndexOf('-');
-				var index = denomination.substring(indexpos+1);
-				document.getElementById("count"+index).innerHTML = quo;
-				document.getElementById("inner-"+index).style.display = "block";
+				displayDenominations(quo, denominations[i].denomination);
 			}
 		}
 	}
 }
-function sorting(json){
-	return json.sort(function(a,b){
-		return b.value - a.value;
-	});
+
+function displayDenominations(val, den) {
+	var value = val;
+	var denomination = den;
+	var indexpos = denomination.lastIndexOf('-');
+	var index = denomination.substring(indexpos+1);
+	document.getElementById("count"+index).innerHTML = value;
+	document.getElementById("inner-"+index).style.display = "block";
+}
+
+function clearDenominations(denominations) {
+	for(var i=1;i<=denominations.length;i++){
+		document.getElementById("inner-"+i).style.display = "none";
+	}
 }
