@@ -13,6 +13,9 @@ function calculate(){
 		"value": parseInt(document.getElementById("denomination-4").value)
 	}];
 	var denominations = sorting(json);
+	for(var i=1;i<=denominations.length;i++){
+		document.getElementById("inner-"+i).style.display = "none";
+	}
 	calculateDenominations(denominations);
 }
 
