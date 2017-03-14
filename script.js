@@ -1,4 +1,6 @@
-//Below function executes on click of CALCULATE button.
+/*
+* calculate function calculates number of denominations based on the user input and updates the UI accordingly.
+*/
 function calculate(){
 	var json = [{
 		"denomination": "denomination-1",
@@ -18,21 +20,27 @@ function calculate(){
 	calculateDenominations(denominations);
 }
 
-//Below function sorts the json object in Descending order to make easy to calculate the number of denominations.
+/*
+* sorting function sorts the json object in descending order.
+*/
 function sorting(json){
 	return json.sort(function(a,b){
 		return b.value - a.value;
 	});
 }
 
-//Below function resets the denominations object before calculating new denominations.
+/*
+* clearDenominations function resets the denominations before calculating new denominations.
+*/
 function clearDenominations(denominations) {
 	for(var i=1;i<=denominations.length;i++){
 		document.getElementById("inner-"+i).style.display = "none";
 	}
 }
 
-//Below function calculates the number of each denomiation of coins required to sum up to the entered value. 
+/*
+* calculateDenominations function calculates the number of each denomiation required to sum up the user input value. 
+*/
 function calculateDenominations(denominations){
 	var value = document.getElementById("text").value;
 	var quo;
@@ -48,7 +56,9 @@ function calculateDenominations(denominations){
 	}
 }
 
-//Below function displays the number of each denomination.
+/*
+* displayDenominations function displays the number of each denomination.
+*/
 function displayDenominations(val, den) {
 	var value = val;
 	var denomination = den;
