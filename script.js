@@ -1,6 +1,6 @@
 /*
-* calculate function calculates number of denominations based on the user input and updates the UI accordingly.
-*/
+ * calculate function calculates number of denominations based on the user input and updates the UI accordingly.
+ */
 function calculate(){
 	var json = [{
 		"denomination": "denomination-1",
@@ -21,8 +21,8 @@ function calculate(){
 }
 
 /*
-* sorting function sorts the json object in descending order.
-*/
+ * sorting function sorts the json object in descending order.
+ */
 function sorting(json){
 	return json.sort(function(a,b){
 		return b.value - a.value;
@@ -30,8 +30,8 @@ function sorting(json){
 }
 
 /*
-* clearDenominations function resets the denominations before calculating new denominations.
-*/
+ * clearDenominations function resets the denominations before calculating new denominations.
+ */
 function clearDenominations(denominations) {
 	for(var i=1;i<=denominations.length;i++){
 		document.getElementById("inner-"+i).style.display = "none";
@@ -39,8 +39,8 @@ function clearDenominations(denominations) {
 }
 
 /*
-* calculateDenominations function calculates the number of each denomiation required to sum up the user input value. 
-*/
+ * calculateDenominations function calculates the number of each denomiation required to sum up the user input value. 
+ */
 function calculateDenominations(denominations){
 	var value = document.getElementById("text").value;
 	var quo;
@@ -57,8 +57,8 @@ function calculateDenominations(denominations){
 }
 
 /*
-* displayDenominations function displays the number of each denomination.
-*/
+ * displayDenominations function displays the number of each denomination.
+ */
 function displayDenominations(val, den) {
 	var value = val;
 	var denomination = den;
